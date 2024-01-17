@@ -147,3 +147,6 @@ typings/
 .DS_Store
 .Ds_Store
 .Ds_store
+
+# Security
+mysql.js
