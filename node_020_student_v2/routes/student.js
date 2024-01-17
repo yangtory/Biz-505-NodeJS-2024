@@ -11,6 +11,7 @@ router.get("/", (req, res) => {
   return res.render("student/list"); // student 앞에 / 는 생략되어 있따
 });
 
+// localhost:3000/student/insert
 router.get("/insert", (req, res) => {
   return res.render("student/input");
 });

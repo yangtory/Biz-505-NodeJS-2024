@@ -1,20 +1,30 @@
-h1 {
+h2.student {
+  width: 80%;
+  margin: 20px auto;
   text-align: center;
-  margin: 16px;
 }
 
-form.input_box {
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  width: 50%;
+h2.student {
+  padding: 1.1rem;
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
 }
 
 form.input_box input,
 form.input_box button {
-  margin: 2px;
-  padding: 7px;
+  display: block; /*box 세로방향으로 정렬*/
+  width: 70%;
+  margin: 5px auto;
+  padding: 8px;
   border-radius: 10px;
+  outline: none;
+}
+
+form.input_box {
+  border: 1px solid #bbbbbb;
+  padding: 15px 0;
+  border-radius: 10px;
+  box-shadow: 0 15px 15px rgba(0, 0, 0, 0.2), 0 15px 15px rgba(0, 0, 0, 0.2);
 }
 
 form.input_box input {
@@ -28,7 +38,22 @@ form.input_box button {
   cursor: pointer;
 }
 
+form.input_box button:hover {
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+form.input_box input:hover {
+  background-color: #eee;
+}
+
 form.input_box input:focus {
-  background-color: #ebebeb;
-  outline: 1px #afafaf;
+  background-color: #eee;
+  border: 1px solid #cf7474;
+}
+
+div.student.error {
+  width: 60%;
+  margin: 0 auto;
+  color: red;
+  font-size: 0.7rem;
 }
