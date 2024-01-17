@@ -1,0 +1,34 @@
+h1 {
+  text-align: center;
+  margin: 16px;
+}
+
+form.input_box {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 50%;
+}
+
+form.input_box input,
+form.input_box button {
+  margin: 2px;
+  padding: 7px;
+  border-radius: 10px;
+}
+
+form.input_box input {
+  border: 1px solid #777;
+}
+
+form.input_box button {
+  background-color: #cf7474;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+form.input_box input:focus {
+  background-color: #ebebeb;
+  outline: 1px #afafaf;
+}
