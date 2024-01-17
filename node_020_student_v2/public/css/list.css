@@ -30,6 +30,14 @@ th {
   /* background-color: #222; */
 }
 
+tr:nth-of-type(odd) {
+  background-color: #e0e0e0;
+}
+tr:hover {
+  cursor: pointer;
+  background-color: #ddd;
+}
+
 th:nth-last-of-type(1),
 td:nth-last-of-type(1) {
   border-right: none;

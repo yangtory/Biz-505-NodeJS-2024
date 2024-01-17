@@ -10,8 +10,8 @@ h2.student {
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
 }
 
-form.input_box input,
-form.input_box button {
+form.student input,
+form.student button {
   display: block; /*box 세로방향으로 정렬*/
   width: 70%;
   margin: 5px auto;
@@ -20,33 +20,33 @@ form.input_box button {
   outline: none;
 }
 
-form.input_box {
+form.student {
   border: 1px solid #bbbbbb;
   padding: 15px 0;
   border-radius: 10px;
   box-shadow: 0 15px 15px rgba(0, 0, 0, 0.2), 0 15px 15px rgba(0, 0, 0, 0.2);
 }
 
-form.input_box input {
+form.student input {
   border: 1px solid #777;
 }
 
-form.input_box button {
+form.student button {
   background-color: #cf7474;
   color: white;
   border: none;
   cursor: pointer;
 }
 
-form.input_box button:hover {
+form.student button:hover {
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
 
-form.input_box input:hover {
+form.student input:hover {
   background-color: #eee;
 }
 
-form.input_box input:focus {
+form.student input:focus {
   background-color: #eee;
   border: 1px solid #cf7474;
 }
