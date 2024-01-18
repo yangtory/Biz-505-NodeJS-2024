@@ -55,8 +55,10 @@ document.addEventListener("DOMContentLoaded", () => {
       message = "* 사용가능한 학번입니다";
       color = "blue";
     }
+
     error_divs[ST_INDEX.ST_NUM].innerHTML = message;
     error_divs[ST_INDEX.ST_NUM].style.color = color;
+
     if (color === "red") {
       st_num.select();
       return false;
@@ -81,7 +83,8 @@ document.addEventListener("DOMContentLoaded", () => {
       st_num.select();
       return false;
     } else {
-      const bYes = st_num_valid();
+      const bYes = await st_num_valid();
+      console.log(bYes);
       if (!bYes) return false;
     }
     if (!st_name.value) {
@@ -106,7 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
    * input box 에 focus() 가 있다가 다른 곳으로 focus() 이동하는 순간
    * 발생하는 event
    */
-  st_num?.addEventListener("blur", (event) => {
+  st_num?.addEventListener("blur", async (event) => {
     const target = event.target; // 본인임
     const value = target.value;
     if (!value) {
@@ -115,7 +118,8 @@ document.addEventListener("DOMContentLoaded", () => {
       target.select();
       return false;
     } else {
-      const bYes = st_num_valid();
+      const bYes = await st_num_valid();
+      console.log(bYes);
       if (!bYes) return false;
     }
   });
