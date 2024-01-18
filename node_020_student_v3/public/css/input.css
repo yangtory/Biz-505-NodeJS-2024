@@ -1,0 +1,58 @@
+h2.student {
+  width: 80%;
+  margin: 20px auto;
+  text-align: center;
+}
+
+h2.student {
+  padding: 1.1rem;
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+form.student input,
+form.student button {
+  display: block; /*box 세로방향으로 정렬*/
+  width: 70%;
+  margin: 5px auto;
+  padding: 8px;
+  border-radius: 10px;
+  outline: none;
+}
+
+form.student {
+  border: 1px solid #bbbbbb;
+  padding: 15px 0;
+  border-radius: 10px;
+  box-shadow: 0 15px 15px rgba(0, 0, 0, 0.2), 0 15px 15px rgba(0, 0, 0, 0.2);
+}
+
+form.student input {
+  border: 1px solid #777;
+}
+
+form.student button {
+  background-color: #cf7474;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+form.student button:hover {
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+form.student input:hover {
+  background-color: #eee;
+}
+
+form.student input:focus {
+  border: 1px solid #cf7474;
+}
+
+div.student.error {
+  width: 60%;
+  margin: 0 auto;
+  color: red;
+  font-size: 0.7rem;
+}
