@@ -38,6 +38,10 @@ nav li {
   transition: 0.5s;
 }
 
+nav li:nth-of-type(3) {
+  margin-left: auto;
+}
+
 nav li:hover {
   border-bottom: 2px solid white;
 }

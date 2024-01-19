@@ -2,20 +2,25 @@ extends ../layout
 
 block content
     link(rel="stylesheet", href="../css/input.css")
+    script(src="../js/input.js")
     h2 도서정보 등록
-    form(method="POST")
-        div.book.input_box
-            input(placeholder="ISBN" name="b_isbn")
-            input(placeholder="도서명" name="b_title")
-            input(placeholder="저자" name="b_author")
-            input(placeholder="출판사" name="publisher")
-            input(placeholder="가격" name="b_price")
-            input(placeholder="할인가" name="b_discout")
-            input(placeholder="요약"  name="b_descrip")
-            input(placeholder="출판일" name="b_pubdate")
-            input(placeholder="네이버링크" type="url" name="b_link")
-            input(placeholder="이미지링크" type="url" name="b_image")
-    div.book.btn_box
-        button.add 저장
+    form.book.input(method="POST")
+        input#b_isbn(placeholder="ISBN" name="b_isbn")
+        div.book.error.b_isbn
+        input#b_title(placeholder="도서명" name="b_title")
+        div.book.error.b_title
+        input#b_author(placeholder="저자" name="b_author")
+        div.book.error.b_author
+        input#b_publisher(placeholder="출판사" name="b_publisher")
+        div.book.error.b_publisher
+        input#b_price(placeholder="가격" name="b_price")
+        div.book.error.b_price
+        input#b_discout(placeholder="할인가" name="b_discout")
+        div.book.error.b_discout
+        input#b_descrip(placeholder="요약"  name="b_descrip")
+        input#b_pubdate(placeholder="출판일" name="b_pubdate")
+        input#b_link(placeholder="네이버링크" type="url" name="b_link")
+        input#b_image(placeholder="이미지링크" type="url" name="b_image")
+        button(type="button").add 저장
         button.reset 새로작성
         button.tolist 리스트보기

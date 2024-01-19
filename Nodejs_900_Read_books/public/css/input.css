@@ -2,7 +2,7 @@ h2 {
   text-align: center;
   margin: 20px;
 }
-.book {
+.book.input {
   display: flex;
   flex-direction: column;
   width: 50%;
@@ -27,16 +27,17 @@ div.btn_box {
   justify-content: right;
 }
 
-div.btn_box button {
+button {
   padding: 12px;
   margin: 3px;
   border-radius: 5px;
   border: none;
   font-weight: 500;
   color: white;
+  cursor: pointer;
 }
 
-div.btn_box button:hover {
+button:hover {
   background-color: #777;
 }
 

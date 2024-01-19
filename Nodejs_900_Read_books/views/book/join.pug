@@ -1,0 +1,17 @@
+extends ../layout
+
+block content 
+    link(rel="stylesheet", href="../css/join.css")
+    script(src="../js/join.js")
+    form.join.input(method="POST")
+        input#id(placeholder="회원ID" type="id" name="id")
+        div.error.id
+        input#password(placeholder="비밀번호" type="password" nam="password")
+        div.error.password
+        input#password_check(placeholder="비밀번호확인" type="password")
+        div.error.password_check
+        input#email(placeholder="Email" type="email" name="email")
+        div.error.email
+        input#name(placeholder="회원이름" name="name")
+        div.error.name
+        button(type="button") 회원가입 

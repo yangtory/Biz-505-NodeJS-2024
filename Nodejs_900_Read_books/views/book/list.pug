@@ -2,6 +2,7 @@ extends ../layout
 
 block content
     link(rel="stylesheet", href="./css/list.css")
+    script(src="../js/list.js")
     table.list 
         thead 
             tr 
@@ -23,4 +24,4 @@ block content
                     td= item.price
                     td= item.discout
     div.btn_box
-        a(href="bookinfo/bookinput") 도서등록
+        a(href="booklist/bookinput") 도서등록

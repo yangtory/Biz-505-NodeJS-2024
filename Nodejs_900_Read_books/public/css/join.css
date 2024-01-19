@@ -1,0 +1,27 @@
+form.join {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  margin: 20px auto;
+}
+
+form.join input {
+  margin: 3px;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #777;
+}
+
+form.join button {
+  padding: 10px;
+  margin: 3px;
+  background-color: #79b2b4;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+form.join button:hover {
+  background-color: #777;
+}

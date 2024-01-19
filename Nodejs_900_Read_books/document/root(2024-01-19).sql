@@ -12,3 +12,11 @@ pubdate	VARCHAR(10),
 link VARCHAR(125),		
 image VARCHAR(125)
 );
+
+
+
+INSERT INTO
+tbl_books(isbn, title, author, publisher, price, discout)
+VALUES('9791188850501','왕이된 남자','김선덕','북라이프','14000','12600');
+
+SELECT * FROM tbl_books;

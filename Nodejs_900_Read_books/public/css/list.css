@@ -16,6 +16,7 @@ table.list th {
 }
 table.list td {
   text-align: center;
+  cursor: pointer;
 }
 
 div.btn_box {
