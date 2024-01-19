@@ -1,0 +1,53 @@
+h2 {
+  text-align: center;
+  margin: 20px;
+}
+.book {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: 20px auto;
+}
+
+form input {
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+  border: 1px solid #777;
+}
+
+form input:focus {
+  outline: 1px solid #79b2b4;
+  background-color: #eee;
+}
+
+div.btn_box {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+}
+
+div.btn_box button {
+  padding: 12px;
+  margin: 3px;
+  border-radius: 5px;
+  border: none;
+  font-weight: 500;
+  color: white;
+}
+
+div.btn_box button:hover {
+  background-color: #777;
+}
+
+button.add {
+  background-color: #79b2b4;
+}
+
+button.reset {
+  background-color: #d38181;
+}
+
+button.tolist {
+  background-color: #79b2b4;
+}

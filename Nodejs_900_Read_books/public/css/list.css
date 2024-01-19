@@ -1,0 +1,38 @@
+table.list {
+  border-collapse: collapse;
+  margin: 30px auto;
+  width: 80%;
+  color: #333333;
+}
+table.list th,
+table.list td {
+  border-top: 1px solid #777;
+  border-bottom: 1px solid #777;
+  padding: 12px;
+}
+
+table.list th {
+  background-color: #eee;
+}
+table.list td {
+  text-align: center;
+}
+
+div.btn_box {
+  display: flex;
+  justify-content: right;
+  width: 80%;
+  margin: 0 auto;
+  /* background-color: #333333; */
+}
+
+div.btn_box a {
+  background-color: #79b2b4;
+  border-radius: 10px;
+  padding: 12px;
+  color: white;
+}
+
+div.btn_box a:hover {
+  background-color: #777;
+}
