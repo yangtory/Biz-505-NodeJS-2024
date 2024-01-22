@@ -3,6 +3,7 @@
 section.books {
   flex: 1;
   display: flex;
+  overflow: auto; /*아티클 내에서만 스크롤 생길수 있게*/
 }
 
 aside {
@@ -33,5 +34,23 @@ aside {
 article.body {
   flex: 5;
   height: 100%;
+  overflow: auto;
   border: 1px solid green;
+}
+
+/*현재 화면이 768px 보다 작을때*/
+@media screen and (max-width: 768px) {
+  section.books {
+    flex-direction: column;
+  }
+
+  aside {
+    flex: 0;
+    flex-direction: row;
+    padding-top: 0;
+    a {
+      text-align: center;
+      font-size: 1.2rem;
+    }
+  }
 }
