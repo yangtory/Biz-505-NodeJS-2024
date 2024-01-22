@@ -1,0 +1,35 @@
+h2.book {
+  text-align: center;
+  margin: 8px;
+  color: #383838;
+}
+
+div {
+  width: 80%;
+  border: 1px solid #777;
+  border-radius: 10px;
+  margin: 8px auto;
+  padding: 8px;
+  font-size: 1.1rem;
+  color: #383838;
+}
+
+.btn_box {
+  border: none;
+  display: flex;
+  justify-content: right;
+}
+
+.btn_box button {
+  padding: 10px;
+  margin: 5px;
+  border: none;
+  border-radius: 10px;
+  background-color: #79b2b4;
+  color: white;
+  cursor: pointer;
+}
+
+.btn_box button:hover {
+  background-color: #777;
+}

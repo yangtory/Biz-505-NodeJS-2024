@@ -1,0 +1,37 @@
+/* /css/books/main.css : views/books/main.pug 와 연결된 css */
+
+section.books {
+  flex: 1;
+  display: flex;
+}
+
+aside {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding-top: 50px;
+  background-color: #e5f1e5;
+  /* border: 1px solid black; */
+  a {
+    /* aside 가 flex 이므로 a tag 는 flex item이 되고 inline-block 성질을 갖는다 */
+    width: 80%; /* 그래서 width 가 적용된다*/
+    margin: 10px auto;
+    text-align: right;
+    border-bottom: 2px solid #aaa;
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: blue;
+    opacity: 0.5; /* blue 를 희미하게 */
+    transition: 0.7s;
+    &:hover {
+      border-bottom: 2px solid #333;
+      opacity: 1;
+    }
+  }
+}
+
+article.body {
+  flex: 5;
+  height: 100%;
+  border: 1px solid green;
+}
