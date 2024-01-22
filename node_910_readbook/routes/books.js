@@ -26,7 +26,7 @@ router.get("/", (req, res) => {
     .query(sql)
     // query() 함수 실행이 완료되면 .then() 함수에게 결과를 전달한다
     .then((rows) => {
-      // console.log(rows);
+      console.log(rows);
       return res.render("books/list", { books: rows[0] });
     })
     // 실행중 오류가 발생하면 .catch() 에게 결과를 전달한다
