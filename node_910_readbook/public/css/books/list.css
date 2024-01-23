@@ -23,6 +23,15 @@ table.books {
     }
   }
 
+  tbody {
+    tr {
+      cursor: pointer;
+    }
+    &:hover {
+      background-color: #ddd;
+    }
+  }
+
   tr:nth-of-type(odd) {
     background-color: #e3e3e3;
     /* color: white; */

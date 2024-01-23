@@ -26,7 +26,7 @@ router.get("/", (req, res) => {
     .query(sql)
     // query() 함수 실행이 완료되면 .then() 함수에게 결과를 전달한다
     .then((rows) => {
-      console.log(rows);
+      // console.log(rows);
       return res.render("books/list", { books: rows[0] });
     })
     // 실행중 오류가 발생하면 .catch() 에게 결과를 전달한다
@@ -57,6 +57,50 @@ router.post("/insert", (req, res) => {
     .then((_) => {
       //_ : 변수가 필요없을때
       return res.redirect("/books");
+    })
+    .catch((err) => {
+      return res.render("db_error", err);
+    });
+});
+
+router.get("/:isbn/detail", (req, res) => {
+  const isbn = req.params.isbn;
+  // return res.json(isbn);
+  // const params = [isbn];
+  const sql = " SELECT * FROM tbl_books WHERE isbn = ? ";
+
+  dbConn
+    .query(sql, isbn)
+    .then((rows) => {
+      // return res.json(rows[0][0]); 대괄호가 두 개 여서 0번째 위치의 0번째 요소
+      return res.render("books/detail1", { book: rows[0][0] });
+    })
+    .catch((err) => {
+      return res.render("db_error", err);
+    });
+});
+
+router.get("/:isbn/delete", (req, res) => {
+  const isbn = req.params.isbn;
+  const sql = " DELETE FROM tbl_books WHERE isbn = ? ";
+
+  dbConn
+    .query(sql, isbn)
+    .then((_) => {
+      return res.redirect("/books");
+    })
+    .catch((err) => {
+      return res.render("db_error", err);
+    });
+});
+
+router.get("/:isbn/update", (req, res) => {
+  const isbn = req.params.isbn;
+  const sql = " SELECT * FROM tbl_books WHERE isbn = ? ";
+  dbConn
+    .query(sql, isbn)
+    .then((rows) => {
+      return res.render("books/input", { book: rows[0][0] });
     })
     .catch((err) => {
       return res.render("db_error", err);

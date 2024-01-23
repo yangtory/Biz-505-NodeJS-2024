@@ -1,0 +1,34 @@
+extends ../books/main
+
+block book_content
+    link(rel="stylesheet", href="/css/books/detail.list")
+    div
+        strong ISBN
+        span=book.isbn 
+    div
+        strong 도서명
+        span=book.title 
+    div
+        strong 출판사
+        span=book.publisher
+    div
+        strong 저자
+        span=book.author 
+    div
+        strong 가격 
+        span=book.price 
+    div
+        strong 할인가격
+        span=book.discount 
+    div
+        strong 역자
+        span=book.description 
+    div
+        strong 발행일
+        span=book.pubdate 
+    div
+        strong 링크
+        span=book.link
+    div
+        strong 이미지
+        span=book.image  
