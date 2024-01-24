@@ -1,0 +1,67 @@
+table.books {
+  background-color: #eee;
+  width: 99%;
+  margin: 5px auto;
+  border-collapse: separate; /*기본값*/
+  border-spacing: 0px;
+  table-layout: fixed;
+  col.isbn {
+    width: 10em;
+  }
+  col.title {
+    width: 20em;
+  }
+
+  thead {
+    position: relative;
+    z-index: 1000; /*공중으로 띄우기*/
+    th {
+      background-color: #f8f8f8;
+      position: sticky;
+      top: 0; /*고정시킬 위치*/
+      z-index: 1001;
+    }
+  }
+
+  tbody {
+    tr {
+      cursor: pointer;
+    }
+    &:hover {
+      background-color: #ddd;
+    }
+  }
+
+  tr:nth-of-type(odd) {
+    background-color: #e3e3e3;
+    /* color: white; */
+  }
+
+  th,
+  td {
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    white-space: nowrap;
+    padding: 10px;
+  }
+
+  /*
+  table-layout 을 fixed 를 설정하고
+  각 칼럼의 width 를 적당히 조절해준 후
+  td 에 아래 3가지 속성을 부여하면
+  content(text) 가 cell의 크기를 벗어날 때 말줄임표(...)를
+  표현할수 있다
+  */
+  td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  th:nth-last-child(1),
+  td:nth-last-child(1) {
+    border-right: none;
+  }
+}
