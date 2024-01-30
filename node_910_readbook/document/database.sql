@@ -90,7 +90,7 @@ DDL(Date Definition Lang.) : DBA (Data Administor, 최고관리자) 가 사용�
 CREATE USER 'yangtory'@'localhost' IDENTIFIED BY '!Biz8080';
 -- 하지만 새로 생성되는 사용자는 아무런 권한이 없기때문에 할수 있는 일이 없다.
 
-SHOW DATABASES;
+SHOW DATABASES tbl_books;
 /*
 정보보호의 2가지 구분
 보안 : 허가받지 않은 사용자가 시스템에 침투하여 시스템에 문제를 일으키는 행위 : 해킹
@@ -105,3 +105,7 @@ SHOW DATABASES;
 GRANT ALL PRIVILEGES ON bookdb2.* TO 'yangtory'@'localhost';
 -- 기존에 부여된 권한을 회수하기
 REVOKE ALL PRIVILEGES ON *.* FROM 'yangtory'@'localhost';
+
+USE bookdb2;
+DROP TABLE tbl_books;
+DESC tbl_books;
