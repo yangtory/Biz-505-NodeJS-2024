@@ -8,10 +8,26 @@ router.get("/", async (req, res, next) => {
   res.send("respond with a resource");
 });
 
+/**
+ * GET http://localhost:3000/users/join 으로 요청이 되면
+ * GET Method 요청
+ *    Browser 의 주소창에 입력한 후 Enter 를 눌러 요청
+ *    Nav 의 Menu 를 클릭할때
+ *    a Tag 의 링크를 클릭할때
+ */
 router.get("/join", async (req, res) => {
-  return res.render("users/join");
+  res.render("users/join");
 });
 
+/**
+ * POST http://localhost:3000/users/join 으로 요청이 되면
+ * POST Method 요청
+ *    form(method="POST") 이 감싸고 있는 input tag 에 입력된 값을
+ *    HTTP Body 에 담아서 서버에 보낼때
+ *
+ *    Client 가 데이터를 대량으로 보내면서
+ *    이 데이터를 처리해줘 라는 요청
+ */
 router.post("/join", async (req, res) => {
   /**
    * 회원가입 요청이 들어오면
@@ -32,15 +48,62 @@ router.post("/join", async (req, res) => {
   return res.json(result);
 });
 
+/**
+ * GET http://localhost:3000/users/callor/check 라는 요청이 되면
+ * callor 라는 사용자 정보가 Table 에 저장되어 있냐?
+ * 있으면 MESSAGE = "FOUND" 응답
+ * 없으면 MESSAGE = "NOT FOUND" 응답
+ */
 // 유저정보 체크
 router.get("/:username/check", async (req, res) => {
   const username = req.params.username;
-  const row = await USER.findByPK(username);
+  const row = await USER.findByPk(username); // 오타확인
   // row가 있으면
   if (row) {
-    res.json({ MESSAGE: "FOUND" });
+    return res.json({ MESSAGE: "FOUND" });
   } else {
-    return res.json({ MESSAGE: "NOT" });
+    return res.json({ MESSAGE: "NOT FOUND" });
+  }
+});
+
+router.get("/login", (req, res) => {
+  return res.render("users/login");
+});
+
+/**
+ * 사용자가 login 화면에서 로그인을 실행하면(요청)
+ * 요청을 처리할 router 를 만들고
+ * DB 에서 사용자 정보를 조회한 후
+ * DB 에 저장된 사용자 인지 아닌지 여부를 응답
+ */
+
+// 내가만든거
+// router.post("/login", async (req, res) => {
+//   const username = req.body.m_username;
+//   const password = req.body.m_password;
+//   const user = await USER.findByPk(username);
+
+//   if (username === user.m_username) {
+//     if (password === user.m_password) {
+//       return res.json(user);
+//     } else {
+//       return res.json({ MESSAGE: "NOT" });
+//     }
+//   }
+// });
+
+// 선생님이 만든거
+router.post("/login", async (req, res) => {
+  const username = req.body.m_username;
+  const password = req.body.m_password;
+  const result = await USER.findByPk(username);
+
+  if (!result) {
+    return res.json({ MESSAGE: "USER NOT FOUND" });
+  } else if (result.m_username === username && result.m_password !== password) {
+    return res.json({ MESSAGE: "PASSWORD WRONG" });
+  } else if (result.m_username === username && result.m_password === password) {
+    return res.json({ MESSAGE: "LOGIN OK" });
   }
 });
 

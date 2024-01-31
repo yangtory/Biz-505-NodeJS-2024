@@ -1,4 +1,4 @@
-const joing_btn_click_event = async () => {
+const join_btn_click_event = async () => {
   const join_form = document.querySelector("form.join");
   const userid = join_form.querySelector("#userid");
   const password = join_form.querySelector("#password");
@@ -11,6 +11,7 @@ const joing_btn_click_event = async () => {
     userid.select();
     return false;
   } else {
+    // Async 방식으로 Server 에 userid check 요청
     // 사용자아이디가 입력됐으면
     const response = await fetch(`/users/${userid.value}/check`);
     const json = await response.json();
@@ -45,5 +46,5 @@ const joing_btn_click_event = async () => {
 
 document.addEventListener("DOMContentLoaded", () => {
   const join_btn = document.querySelector("#join_btn");
-  join_btn.addEventListener("click", joing_btn_click_event);
+  join_btn.addEventListener("click", join_btn_click_event);
 });
