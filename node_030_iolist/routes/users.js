@@ -66,8 +66,15 @@ router.get("/:username/check", async (req, res) => {
   }
 });
 
+const LOGIN_MESSAGE = {
+  USER_NOT: "사용자 ID 없음",
+  PASS_WRONG: "비밀번호 오류",
+  NEED_LOGIN: "로그인 필요",
+};
+
 router.get("/login", (req, res) => {
-  return res.render("users/login");
+  const message = req.query.fail; //fail 값을 전달해주면
+  return res.render("users/login", { NEED: message }); //need에 담아 보내기
 });
 
 /**
@@ -99,12 +106,24 @@ router.post("/login", async (req, res) => {
   const result = await USER.findByPk(username);
 
   if (!result) {
-    return res.json({ MESSAGE: "USER NOT FOUND" });
+    return res.redirect(`/users/login?fail=${LOGIN_MESSAGE.USER_NOT}`);
   } else if (result.m_username === username && result.m_password !== password) {
-    return res.json({ MESSAGE: "PASSWORD WRONG" });
+    return res.redirect(`/users/login?fail=${LOGIN_MESSAGE.PASS_WRONG}`);
   } else if (result.m_username === username && result.m_password === password) {
-    return res.json({ MESSAGE: "LOGIN OK" });
+    /**
+     * db 에서 가져온 사용자 정보(result) 를
+     * server 의 세션영역에 user 라는 이름으로 보관하라
+     * 그리고 sesison ID 를 발행하라
+     */
+    req.session.user = result; //서버의 session 영역에 user 라는 변수를 만들고 db 에서 가져온 사용자 정보를 session id만들기
+    return res.redirect("/");
+    //return res.json({ MESSAGE: "LOGIN OK" });
   }
+});
+
+router.get("/logout", (req, res) => {
+  req.session.destroy(); // session 없애기
+  return res.redirect("/");
 });
 
 export default router;
