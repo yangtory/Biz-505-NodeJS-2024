@@ -1,8 +1,25 @@
 import express from "express";
+import DB from "../models/index.js";
+
 const router = express.Router();
+const IOLIST = DB.models.tbl_iolist;
+const DEPTS = DB.models.tbl_depts;
+const PRODUCTS = DB.models.tbl_products;
 
 router.get("/", async (req, res) => {
-  return res.render("iolist/list");
+  try {
+    // iolist 전체를 가져오고 프로덕트 모델을 포함시켜
+    const rows = await IOLIST.findAll({
+      include: [
+        { model: PRODUCTS, as: "IO_상품" },
+        { model: DEPTS, as: "IO_거래처" },
+      ],
+    });
+    // return res.json(rows);
+    return res.render("iolist/list", { IOLIST: rows });
+  } catch (error) {
+    res.json(error);
+  }
 });
 
 router.get("/insert", async (req, res) => {
