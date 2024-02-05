@@ -1,0 +1,54 @@
+h3 {
+  text-align: center;
+  margin: 16px;
+}
+
+form.insert {
+  width: 70%;
+  margin: 0 auto;
+
+  section.insert {
+    display: flex;
+    flex-direction: row;
+
+    div.box {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+  }
+}
+input {
+  padding: 10px;
+  margin: 3px;
+  border-radius: 5px;
+  background-color: #eee;
+  border: none;
+}
+section.image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  div.image {
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+    background-color: #ddd;
+  }
+
+  div.btn_box {
+    width: 100%;
+    display: flex;
+    button {
+      flex: 1;
+      background-color: black;
+      color: white;
+      cursor: pointer;
+      padding: 10px;
+      margin: 3px;
+      border-radius: 5px;
+      border: none;
+    }
+  }
+}

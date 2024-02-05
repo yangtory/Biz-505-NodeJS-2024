@@ -1,16 +1,27 @@
 extends ../layout
 
 block content
+    link(rel="stylesheet", href="/css/products_list.css")
     script(src="/js/product.js")
-    h1 상품관리
-
     table.products 
         tr
             th 상품코드
             th 상품이름
             th 품목
+            th 규격
+            th 고객
+            th 매입단가
+            th 매출단가
         each item in PRODUCTS
             tr(data-pcode=`${item.p_code}`)
                 td=item.p_code
                 td=item.p_name
                 td=item.p_item
+                td=item.p_std
+                td=item.p_comp 
+                td=item.p_iprice 
+                td=item.p_oprice
+    div.btn_box
+        input(type="text" placeholder="검색어를 입력해주세요")
+        button.search 조회
+        button.update 상품추가  

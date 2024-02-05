@@ -27,6 +27,8 @@ document.addEventListener("DOMContentLoaded", () => {
         url += "iolist/";
       } else if (navText === NAV_TEXT.상품관리) {
         url += "products/";
+      } else if (navText === NAV_TEXT.거래처관리) {
+        url += "depts/";
       }
       document.location.replace(url);
     }

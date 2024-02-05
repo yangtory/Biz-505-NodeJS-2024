@@ -1,23 +1,26 @@
 extends ../layout
 
 block content 
-    div.detail
-        h3 #{PRODUCT.p_name} 상품 자세히 보기
-        p= PRODUCT.p_code
-        p= PRODUCT.p_item
-    table.detail.iolist
-        tr
-            th 거래일자
-            th 거래시각
-            th 거래방법
-            th 거래처코드
-            th 거래처명
-            th 대표자
-            each item in PRODUCT.IOS
-                tr 
-                    td= item.io_date
-                    td= item.io_time
-                    td #{item.io_div == "1" ? "매입" : "매출"}
-                    td= item.io_dcode
-                    td= item.IO_거래처.d_name 
-                    td= item.IO_거래처.d_ceo
+    link(rel="stylesheet", href="/css/detail.css")
+    script(src="/js/product_detail.js")
+    div.main
+        h1 #{PRODUCT.p_name} 
+        div.detail
+            div.detail.image
+            div.detail.box
+                label 상품코드 
+                    input(type="text" id="p_code" value=PRODUCT.p_code readonly)
+                label 　품목　 
+                    input(type="text" id="p_name" value=PRODUCT.p_item readonly)
+                label 매입단가
+                    input(type="text" id="p_item" value=PRODUCT.p_iprice readonly)
+            div.detail.box
+                label 상품이름
+                    input(type="text" id="p_std" value=PRODUCT.p_name readonly)
+                label 　규격　
+                    input(type="text" id="p_iprice" value=PRODUCT.p_std readonly)
+                label 매출단가
+                    input(type="text" id="p_oprice" value=PRODUCT.p_oprice readonly)
+        div.btn_box
+            button.update 수정
+            button.delete 삭제
