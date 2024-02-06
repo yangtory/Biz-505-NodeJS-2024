@@ -1,5 +1,7 @@
 import express from "express";
 import DB from "../models/index.js";
+import { upLoad } from "../modules/file_upload.js";
+
 const PRODUCTS = DB.models.tbl_products;
 const IOLIST = DB.models.tbl_iolist;
 const DEPTS = DB.models.tbl_depts;
@@ -14,6 +16,16 @@ router.get("/", async (req, res) => {
   return res.render("product/list", { PRODUCTS: rows });
 });
 
+router.get("/insert", (req, res) => {
+  return res.render("product/input");
+});
+
+// 라우터가 수신하고 파일이 있으면 upLoad 미들웨어에있는 single("input name")에게 전달, single=파일1개만 받겠음
+router.post("/insert", upLoad.single("p_image"), (req, res) => {
+  const file = req.file;
+  return res.json({ body: req.body, file });
+});
+
 router.get("/:pcode/detail", async (req, res) => {
   const pcode = req.params.pcode;
   const row = await PRODUCTS.findByPk(pcode, {
@@ -24,26 +36,6 @@ router.get("/:pcode/detail", async (req, res) => {
     },
   });
   return res.render("product/detail", { PRODUCT: row });
-});
-
-router.get("/insert", async (req, res) => {
-  const user = req.session?.user;
-  if (user) {
-    return res.render("product/insert");
-  } else {
-    const message = "로그인이 필요한 서비스 입니다";
-    return res.redirect(`/users/login?fail=${message}`);
-  }
-});
-
-router.post("/insert", async (req, res) => {
-  const data = req.body;
-  try {
-    await PRODUCTS.create(data, { where: { p_code: req.body.p_code } });
-    return res.redirect("/products");
-  } catch (error) {
-    return res.json(error);
-  }
 });
 
 router.get("/:pcode/update", async (req, res) => {
