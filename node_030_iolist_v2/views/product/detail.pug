@@ -1,0 +1,26 @@
+extends ../layout
+
+block content 
+    link(rel="stylesheet", href="/css/detail.css")
+    script(src="/js/product_detail.js")
+    div.main
+        h1 #{PRODUCT.p_name} 
+        div.detail
+            div.detail.image
+            div.detail.box
+                label 상품코드 
+                    input(type="text" id="p_code" value=PRODUCT.p_code readonly)
+                label 　품목　 
+                    input(type="text" id="p_name" value=PRODUCT.p_item readonly)
+                label 매입단가
+                    input(type="text" id="p_item" value=PRODUCT.p_iprice readonly)
+            div.detail.box
+                label 상품이름
+                    input(type="text" id="p_std" value=PRODUCT.p_name readonly)
+                label 　규격　
+                    input(type="text" id="p_iprice" value=PRODUCT.p_std readonly)
+                label 매출단가
+                    input(type="text" id="p_oprice" value=PRODUCT.p_oprice readonly)
+        div.btn_box
+            button.update 수정
+            button.delete 삭제

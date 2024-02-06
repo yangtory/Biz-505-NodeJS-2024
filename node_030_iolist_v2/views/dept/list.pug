@@ -1,0 +1,22 @@
+extends ../layout
+
+block content
+    link(rel="stylesheet", href="/css/depts_list.css")
+    table.dept 
+        tr
+            th 거래처코드
+            th 거래처이름
+            th CEO
+            th 전화번호
+            th 주소
+        each item in DEPTS
+            tr(data-dcode=`${item.d_code}`)
+                td=item.d_code
+                td=item.d_name
+                td=item.d_ceo
+                td=item.d_tel
+                td=item.d_addr 
+    div.btn_box
+        input(type="text" placeholder="검색어를 입력해주세요")
+        button.search 조회
+        button.update 거래처추가 
