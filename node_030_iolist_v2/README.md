@@ -29,3 +29,9 @@
 
 - ` express-21c` 를 로컬에 설치하지 않고, 사용할때 원격의 패키지를 호출하여 사용하는 방법
 - `npx express-21c 프로젝트명`
+
+## temp 폴더 터미널에서 설치하기
+
+- npm install -g mysql2 npm
+- install -g sequelize-auto
+- sequelize-auto -o "./models" -d fridgedb -h localhost -u root -x '!Biz8080' -e mysql -l esm
