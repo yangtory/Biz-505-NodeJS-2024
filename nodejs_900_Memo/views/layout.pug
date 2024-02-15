@@ -1,0 +1,27 @@
+doctype html
+html(lang="ko")
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta( name='viewport', content='width=device-width, initial-scale=1')
+    title= title
+    link(rel='stylesheet', href='/css/main.css')
+    script(src="/js/main.js")
+  body
+    header 
+      h1 오늘은 내 생의 가장 젊은날
+    form(method="POST" enctype="multipart/form-data")
+      section.left
+        div.current
+          input.date(type="date" name="m_date" id="m_date")
+          input.time(type="time" name="m_time" id="m_time")
+          a(href="/memo") 새로작성 
+        div.list 
+          if MEMO
+            each item in MEMO
+              ul(data-num=`${item.m_seq}`)
+                img(src="/images/noImage.svg"  width="50px" height="50px")
+                li= item.m_title
+      block content
+    footer 
+      address CopyRight &copy; wjdduscldrn@naver.com

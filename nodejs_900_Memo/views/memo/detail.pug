@@ -1,0 +1,14 @@
+extends ../layout
+
+block content
+    link(rel="stylesheet", href="/css/input.css")
+    div.list
+        h2 자세히보기
+        each item in memo
+            input(type="text" readonly value=`${item.m_title}`)
+            input(type="text" readonly value=`${item.m_author}`)
+            input(type="text" readonly value=`${item.m_date}`)
+            input(type="text" readonly value=`${item.m_time}`)
+            input(type="text" readonly value=`${item.m_memo}`)
+            img.add(src=`/uploads/${memo.m_image}` width="150px" height="150px")
+    

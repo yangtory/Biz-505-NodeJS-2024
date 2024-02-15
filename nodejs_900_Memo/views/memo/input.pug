@@ -1,0 +1,25 @@
+extends ../layout
+
+block content 
+    link(rel="stylesheet", href="/css/main.css")
+    script(src="/js/input.js")
+    if memo
+        h3=`${memo.m_title} 수정`
+    else
+        h3= "메모추가"
+    section.right
+        div.input
+            if memo
+                input(type="email" name="m_author" placeholder="Email을 입력해주세요" value=`${memo ? memo.m_author : ""}` readonly)
+            else
+                input(type="email" name="m_author" placeholder="Email을 입력해주세요")
+            input(type="text" name="m_title" placeholder="제목을 입력해주세요" value=`${memo ? memo.m_title : ""}`)
+            input(type="text" name="m_memo" placeholder="내용을 입력해주세요" value=`${memo ? memo.m_memo : ""}`)
+    section.right.img
+        div.image
+            input.file(type="file" name="m_image"  value=`${memo ? memo.m_image : ""}`)
+            img.add(src=`${memo? `/uploads/${memo.m_image}` : "/images/noImage.svg" }` width="150px" height="150px")
+        div.save
+            input.save(type="submit" value=`${memo? "수정" : "저장"}`)
+            if memo
+                input.delete(type="button" value="삭제")
