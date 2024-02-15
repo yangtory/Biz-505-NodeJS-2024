@@ -6,13 +6,13 @@ block content
     div.body
         h2=`${memo.m_title}`
         div.list.detail
+            img.add(src=`/uploads/${memo.m_image}` width="150px" height="150px")
             input(type="text" readonly value=`${memo.m_title}`)
             input(type="text" readonly value=`${memo.m_author}`)
             input(type="text" readonly value=`${memo.m_date}`)
             input(type="text" readonly value=`${memo.m_time}`)
             input(type="text" readonly value=`${memo.m_memo}`)
-            img.add(src=`/uploads/${memo.m_image}` width="150px" height="150px")
         div.btn
-            button.update(type="button",data-num=`${memo.m_seq}`) 수정
-            button.delete(data-num=`${memo.m_seq}`) 삭제
+            button.update(type="button" data-num=`${memo.m_seq}`) 수정
+            button.delete(type="button" data-num=`${memo.m_seq}`) 삭제
     

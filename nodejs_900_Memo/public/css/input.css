@@ -1,35 +1,40 @@
 div.body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
 }
 
 h2 {
-  margin: 5px;
+    margin: 5px;
 }
 div.detail {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  img.add {
     display: flex;
-  }
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    input {
+        width: 100%;
+    }
+    img.add {
+        display: flex;
+        border-radius: 15px;
+    }
 
-  input:focus {
-    outline: none;
-  }
+    input:focus {
+        outline: none;
+    }
 }
 
 button {
-  border: none;
-  background-color: black;
-  color: white;
-  border-radius: 5px;
-  padding: 7px;
-  margin: 2px;
-  cursor: pointer;
-  &:hover {
-    opacity: 0.7;
-  }
+    border: none;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    padding: 7px;
+    margin: 2px;
+    cursor: pointer;
+    &:hover {
+        opacity: 0.7;
+    }
 }
