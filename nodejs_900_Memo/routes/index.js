@@ -49,9 +49,9 @@ router.get("/:m_seq/detail", async (req, res) => {
   const m_seq = req.params.m_seq;
   try {
     const row = await MEMO.findByPk(m_seq);
-    // const rows = await MEMO.findAll();
-    // return res.json(item);
-    return res.render("memo/detail", { memo: row });
+    const rows = await MEMO.findAll();
+    // return res.json(row);
+    return res.render("memo/detail", { memo: row, MEMO: rows });
   } catch (error) {
     return res.json(error);
   }
@@ -60,19 +60,19 @@ router.get("/:m_seq/detail", async (req, res) => {
 router.get("/:m_seq/update", async (req, res) => {
   const m_seq = req.params.m_seq;
   try {
-    await MEMO.findByPk(m_seq);
+    const item = await MEMO.findByPk(m_seq);
     const rows = await MEMO.findAll();
     return res.render("memo/input", { memo: item, MEMO: rows });
   } catch (error) {}
 });
 
-router.post("/:m_seq/detail", async (req, res) => {
-  const m_seq = req.params.m_seq;
-  try {
-    await MEMO.update(m_seq, {
-      where: { m_seq },
-    });
-    return res.redirect("/");
-  } catch (error) {}
-});
+// router.post("/:m_seq/detail", async (req, res) => {
+//   const m_seq = req.params.m_seq;
+//   try {
+//     await MEMO.update(m_seq, {
+//       where: { m_seq },
+//     });
+//     return res.redirect("/");
+//   } catch (error) {}
+// });
 export default router;
