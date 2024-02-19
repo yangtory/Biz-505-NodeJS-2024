@@ -23,15 +23,32 @@ router.get("/", async (req, res, next) => {
 });
 
 router.post("/", upLoad.single("m_image"), async (req, res) => {
+  const m_seq = req.query.seq; //query 로 받아오기
   const imageFile = req.file;
-  try {
-    req.body.m_image = imageFile?.filename;
-    req.body.m_author = "wjdduscldrn@naver.com";
+  // try {
+  req.body.m_image = imageFile?.filename;
+  req.body.m_author = "wjdduscldrn@naver.com";
+  if (m_seq) {
+    await MEMOS.update(req.body, { where: { m_seq } });
+  } else {
     await MEMOS.create(req.body);
-    return res.redirect("/");
-  } catch (error) {
-    return res.json(error);
   }
+  return res.redirect("/");
+  // } catch (error) {
+  // return res.json(error);
+  // }
+});
+
+router.post("/update/:seq", upLoad.single("m_image"), async (req, res) => {
+  const seq = req.params.seq;
+  const imageFile = req.file;
+
+  req.body.m_image = imageFile?.filename;
+  req.body.m_author = "wjdduscldrn@naver.com";
+  await MEMOS.update(req.body, {
+    where: { m_seq: seq },
+  });
+  return res.redirect("/");
 });
 
 router.get("/:seq/get", async (req, res) => {
