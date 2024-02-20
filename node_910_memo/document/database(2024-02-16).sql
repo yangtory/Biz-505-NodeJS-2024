@@ -13,4 +13,5 @@ m_image	VARCHAR(125)
 
 SHOW TABLES;
 DESC tbl_memos;
+SELECT * FROM tbl_memos;
 DROP TABLE tbl_memos;

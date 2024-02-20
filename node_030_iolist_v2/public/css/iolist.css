@@ -26,3 +26,7 @@ div.iolist.btn_box {
     }
   }
 }
+
+table.iolist tr.delete {
+  text-decoration: line-through;
+}
