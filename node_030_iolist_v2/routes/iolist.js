@@ -32,4 +32,8 @@ router.get("/insert", async (req, res) => {
   }
 });
 
+router.get("/count", async (req, res) => {
+  const rows = await IOLIST.findAll();
+  return res.json({ count: rows.length });
+});
 export default router;
