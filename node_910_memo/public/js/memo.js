@@ -64,26 +64,46 @@ document.addEventListener("DOMContentLoaded", () => {
         seq = target.dataset.seq;
       } else {
         seq = target.closest("LI").dataset.seq;
-        alert(seq);
+        // alert(seq);
       }
       const res = await fetch(`/${seq}/get`); //server 한테 seq달라고 요청
       const json = await res.json();
       console.log(json);
 
       // server로 넘어온 값들이 json 안에 있음
+      // server에서 받은 메모 데이터를 각각의 input tag 에 value 값에 셋팅
       toDate.value = json.m_date;
       toTime.value = json.m_time;
       toSubject.value = json.m_subject;
       toMemo.value = json.m_memo;
+      // 메모의 이미지를 세팅
+      if (json.m_image) {
+        memo_image.src = `/images/${json.m_image}`;
+      } else {
+        memo_image.src = "/images/noImage.svg";
+      }
+
       // btn_save 는 input tag 를 사용한 button 이므로
       // value 속성을 변경하면 화면에 보이는 text 가 변경된다.
       btn_save.value = "수정";
       btn_save.classList.add("update");
+
       // form.input 에 action 을 새롭게 지정하여
       // 데이터 update 를 할 수 있도록 한다.
       // input_form.action = `/update/${json.m_seq}`;
       input_form.action = `/?seq=${json.m_seq}`; // ? 는 query 변수,router 에서 query로 불러오기위해
-      btn_delete.type = "button"; // hidden 을 button 으로 바꿔주기
+
+      // 삭제 버튼이 나타나도록 hidden 을 button 으로 type 변경
+      btn_delete.type = "button";
+      btn_delete.dataset.seq = json.m_seq;
+    }
+  });
+
+  btn_delete.addEventListener("click", (e) => {
+    const target = e.target;
+    const seq = target.dataset.seq;
+    if (confirm("메모를 삭제할까요?")) {
+      document.location.replace(`/${seq}/delete`);
     }
   });
 
