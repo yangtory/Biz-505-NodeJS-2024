@@ -16,11 +16,11 @@ block content
             th 거래처명
             th 거래방법
         each item in IOLIST
-            tr(date-seq=`${item.io_seq}`, class=`${item.io_delete == 1? 'delete':''}`) 
-                td=item.io_date
-                td=item.io_time
-                td=item.io_pcode
-                td=item.IO_상품.p_name
-                td=item.io_dcode
-                td=item.IO_거래처.d_name
-                td=item.io_div
+            tr(data-seq= `${item.io_seq}`, class= `${item.io_delete == 1 ? 'delete' : ''}`)
+                td= item.io_date 
+                td= item.io_time 
+                td= item.io_pcode 
+                td= item.IO_상품.p_name 
+                td= item.io_dcode 
+                td= item.IO_거래처.d_name 
+                td= item.io_div 
